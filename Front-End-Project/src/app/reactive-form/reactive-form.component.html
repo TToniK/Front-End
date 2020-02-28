@@ -23,12 +23,16 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [formControl]="password" formControlName="password" placeholder="salasana">
+      <input matInput [formControl]="password" placeholder="salasana" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [formControl]="confirmPassword" formControlName="confirmPassword" placeholder="syötä salasana uudelleen"
+      <input type="password" matInput [formControl]="confirmPassword" formControlName="confirmPassword" placeholder="syötä salasana uudelleen"
              pattern="{{password.value}}">
+
+
     </mat-form-field>
 
        <mat-checkbox formControlName="termsAndConditions">Hyväksyn käyttöehdot.
